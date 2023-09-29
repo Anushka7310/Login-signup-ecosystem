@@ -80,8 +80,13 @@ const loginUser = async (req, res) => {
 };
 
 const getProfile = (req, res) => {
+  //oauth
+  if (req.user) {
+    res.status(200).json(req.user);
+    return;
+  }
+  //jwt
   const { token } = req.cookies;
-  console.log(req.cookies);
   if (token) {
     jwt.verify(token, process.env.JWT_SECRET, {}, (err, user) => {
       if (err) throw err;
@@ -92,9 +97,21 @@ const getProfile = (req, res) => {
   }
 };
 
+const failLogin = (req, res) => {
+  res.status(401).json();
+};
+
+const logout = (req, res) => {
+  req.logOut();
+  const { token } = req.cookies;
+  if (token) res.clearCookie("token");
+  res.status(200).json();
+};
 module.exports = {
   test,
   registerUser,
   loginUser,
   getProfile,
+  failLogin,
+  logout,
 };

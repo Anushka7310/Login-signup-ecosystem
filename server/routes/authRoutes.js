@@ -1,20 +1,38 @@
 const express = require("express");
 const router = express.Router();
-const cors = require("cors");
+const passport = require("passport");
 const {
   test,
   registerUser,
   loginUser,
   getProfile,
+  failLogin,
+  logout,
 } = require("../controllers/authControllers");
+const jwt = require("jsonwebtoken");
 
-//middleware
-router.use(
-  cors({
-    credentials: true,
-    origin: "http://localhost:5173",
+const clientUrl = "http://localhost:5173";
+
+router.get(
+  "/google",
+  passport.authenticate("google", {
+    scope: [
+      "https://www.googleapis.com/auth/userinfo.profile",
+      "https://www.googleapis.com/auth/userinfo.email",
+    ],
   })
 );
+router.get(
+  "/google/callback",
+  passport.authenticate("google", {
+    successRedirect: clientUrl,
+    failureRedirect: "/login/failed",
+  })
+);
+
+router.get("/logout", logout);
+
+router.get("/login/failed", failLogin);
 
 router.get("/", test);
 router.post("/register", registerUser);

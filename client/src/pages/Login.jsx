@@ -8,15 +8,17 @@ export default function Login() {
   const { setUser } = useContext(UserContext);
 
   const navigate = useNavigate();
+
   const [data, setData] = useState({
     email: "",
     password: "",
   });
+
   const loginUser = async (e) => {
     e.preventDefault();
     const { email, password } = data;
     try {
-      const { data } = await axios.post("/login", {
+      const { data } = await axios.post("/auth/login", {
         email,
         password,
       });
@@ -24,15 +26,20 @@ export default function Login() {
         toast.error(data.error);
       } else {
         setUser(data);
-        navigate("/dashboard");
+        navigate("/");
       }
     } catch (error) {
       console.log(error);
     }
   };
 
+  const googleLogin = () => {
+    window.open("http://localhost:8000/auth/google", "_self");
+  };
+
   return (
     <div>
+      <button onClick={googleLogin}>Google Login</button>
       <form onSubmit={loginUser}>
         <label>Email</label>
         <input
