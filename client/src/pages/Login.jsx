@@ -37,9 +37,14 @@ export default function Login() {
     window.open("http://localhost:8000/auth/google", "_self");
   };
 
+  const githubLogin = () => {
+    window.open("http://localhost:8000/auth/github", "_self");
+  };
+
   return (
     <div>
       <button onClick={googleLogin}>Google Login</button>
+      <button onClick={githubLogin}>Github Login</button>
       <form onSubmit={loginUser}>
         <label>Email</label>
         <input

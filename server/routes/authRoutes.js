@@ -23,6 +23,20 @@ router.get(
   })
 );
 router.get(
+  "/github/callback",
+  passport.authenticate("github", {
+    successRedirect: clientUrl,
+    failureRedirect: "/login/failed",
+  })
+);
+
+router.get(
+  "/github",
+  passport.authenticate("github", {
+    scope: ["profile", "user:email"],
+  })
+);
+router.get(
   "/google/callback",
   passport.authenticate("google", {
     successRedirect: clientUrl,
