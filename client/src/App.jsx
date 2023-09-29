@@ -1,6 +1,6 @@
 import "./App.css";
 import { Routes, Route, Navigate } from "react-router-dom";
-import Navbar from "./components/Navbar";
+// import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
 import Register from "./pages/Register";
 import Login from "./pages/Login";
@@ -16,7 +16,7 @@ function App() {
   const { user } = useContext(UserContext);
   return (
     <>
-      <Navbar />
+      {/* <Navbar /> */}
       <Toaster position="bottom-right" toastOptions={{ duration: 2000 }} />
       <Routes>
         <Route path="/" element={user ? <Home /> : <Navigate to="/login" />} />
