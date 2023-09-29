@@ -1,28 +1,33 @@
-import { useState } from "react";
 import axios from "axios";
 import { toast } from "react-hot-toast";
 import { Link, useNavigate } from "react-router-dom";
 
 export default function Register() {
   const navigate = useNavigate();
-  const [data, setData] = useState({
-    name: "",
-    email: "",
-    password: "",
-  });
+
   const registerUser = async (e) => {
     e.preventDefault();
-    const { name, email, password } = data;
+    const firstname = e.target.firstname.value;
+    const lastname = e.target.lastname.value;
+    const email = e.target.email.value;
+    const password = e.target.password.value;
+    const confirmPassword = e.target.confirmPassword.value;
+    console.log(password, confirmPassword);
+    if (password !== confirmPassword) {
+      e.target.confirmPassword.setCustomValidity("Passwords Don't Match");
+      return;
+    }
+
     try {
       const { data } = await axios.post("/auth/register", {
-        name,
+        firstname,
+        lastname,
         email,
         password,
       });
       if (data.error) {
         toast.error(data.error);
       } else {
-        setData({});
         toast.success("Login Successful, Welcome!");
         navigate("/login");
       }
@@ -31,32 +36,6 @@ export default function Register() {
     }
   };
   return (
-    // <div>
-    //   <form onSubmit={registerUser}>
-    //     <label>Name</label>
-    //     <input
-    //       type="text"
-    //       placeholder="enter name ..."
-    //       value={data.name}
-    //       onChange={(e) => setData({ ...data, name: e.target.value })}
-    //     />
-    //     <label>Email</label>
-    //     <input
-    //       type="email"
-    //       placeholder="enter email ..."
-    //       value={data.email}
-    //       onChange={(e) => setData({ ...data, email: e.target.value })}
-    //     />
-    //     <label>Password</label>
-    //     <input
-    //       type="password"
-    //       placeholder="enter password ..."
-    //       value={data.password}
-    //       onChange={(e) => setData({ ...data, password: e.target.value })}
-    //     />
-    //     <button type="submit">Submit</button>
-    //   </form>
-    // </div>
     <div className="flex flex-row py-20 justify-between items-center  ">
       <div className="w-1/2 flex flex-col items-center pr-20 border-r-[#AAB2C873] border-r-2">
         <div>
@@ -69,6 +48,7 @@ export default function Register() {
           <form onSubmit={registerUser}>
             <div className="mb-5 w-f">
               <input
+                required
                 type="text"
                 name="firstname"
                 id="firstname"
@@ -78,6 +58,7 @@ export default function Register() {
             </div>
             <div className="mb-5">
               <input
+                required
                 type="text"
                 name="lastname"
                 id="lastname"
@@ -87,6 +68,7 @@ export default function Register() {
             </div>
             <div className="mb-5">
               <input
+                required
                 type="email"
                 name="email"
                 id="email"
@@ -96,6 +78,7 @@ export default function Register() {
             </div>
             <div className="mb-5">
               <input
+                required
                 type="password"
                 name="password"
                 id="password"
@@ -105,6 +88,7 @@ export default function Register() {
             </div>
             <div className="mb-5">
               <input
+                required
                 type="password"
                 name="confirmPassword"
                 id="confirmPassword"
@@ -135,7 +119,10 @@ export default function Register() {
           </button>
         </div>
         <div>
-          Already have an Account? <Link to={"/login"}>Login</Link>
+          Already have an Account?{" "}
+          <Link to={"/login"} className="text-[#1F64FF]">
+            Login
+          </Link>
         </div>
       </div>
       <div className="flex justify-center items-center">

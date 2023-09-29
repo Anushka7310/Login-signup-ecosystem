@@ -10,9 +10,9 @@ const test = (req, res) => {
 //register endpoint
 const registerUser = async (req, res) => {
   try {
-    const { name, email, password } = req.body;
+    const { firstname, lastname, email, password } = req.body;
     // Check if name was entered
-    if (!name) {
+    if (!firstname || !lastname) {
       return res.json({
         error: "name is required",
       });
@@ -33,7 +33,8 @@ const registerUser = async (req, res) => {
 
     const hashedPassword = await hashPassword(password);
     const user = await User.create({
-      name,
+      firstname,
+      lastname,
       email,
       password: hashedPassword,
     });
@@ -60,7 +61,12 @@ const loginUser = async (req, res) => {
     const match = await comparePassword(password, user.password);
     if (match) {
       jwt.sign(
-        { email: user.email, id: user._id, name: user.name },
+        {
+          email: user.email,
+          id: user._id,
+          firstname: user.firstname,
+          lastname: user.lastname,
+        },
         process.env.JWT_SECRET,
         {},
         (err, token) => {
@@ -102,9 +108,12 @@ const failLogin = (req, res) => {
 };
 
 const logout = (req, res) => {
-  req.logOut();
   const { token } = req.cookies;
-  if (token) res.clearCookie("token");
+  if (token) {
+    res.clearCookie("token");
+  } else {
+    req.logOut();
+  }
   res.status(200).json();
 };
 module.exports = {
