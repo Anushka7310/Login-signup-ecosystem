@@ -25,7 +25,7 @@ To run the project locally, follow these steps:
 ### Backend (Server)
 1. Navigate to the `server` directory: `cd server`.
 2. Install dependencies: `npm install`.
-3. Start the backend server: `npm start`.
+3. Start the backend server: `npm run server`.
 
 ## Setting Up Credentials
 
