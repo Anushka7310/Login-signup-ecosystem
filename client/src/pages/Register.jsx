@@ -35,6 +35,13 @@ export default function Register() {
       console.log(error);
     }
   };
+  const googleLogin = () => {
+    window.open("http://localhost:8000/auth/google", "_self");
+  };
+
+  const githubLogin = () => {
+    window.open("http://localhost:8000/auth/github", "_self");
+  };
   return (
     <div className="flex flex-row py-20 justify-between items-center  ">
       <div className="w-1/2 flex flex-col items-center pr-20 border-r-[#AAB2C873] border-r-2">
@@ -105,13 +112,19 @@ export default function Register() {
         </div>
         <div>OR</div>
         <div className="flex flex-col lg:flex-row lg:justify-between items-center w-full">
-          <button className="lg:mr-8 w-full flex flex-row border-[#C0C0C0] border-2 rounded-md pz-1 text-[14px] font-[600] justify-center items-center">
+          <button
+            onClick={googleLogin}
+            className="lg:mr-8 w-full flex flex-row border-[#C0C0C0] border-2 rounded-md pz-1 text-[14px] font-[600] justify-center items-center"
+          >
             <div>Sign Up With Google</div>
             <div className="ml-2">
               <img src="/images/googleLogo.png" />
             </div>
           </button>
-          <button className="w-full flex flex-row border-[#C0C0C0] border-2 rounded-md pz-1 text-[14px] font-[600] justify-center items-center">
+          <button
+            onClick={githubLogin}
+            className="w-full flex flex-row border-[#C0C0C0] border-2 rounded-md pz-1 text-[14px] font-[600] justify-center items-center"
+          >
             <div>Sign Up With Github</div>
             <div className="ml-2">
               <img src="/images/githubLogo.png" />
