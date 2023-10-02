@@ -48,4 +48,8 @@ You can access the deployed version of this application by following the link be
 
 [**Open the Application**](https://xerocodee-ef638.web.app)
 
-Feel free to explore and interact with the live version of the project without the need to set up a local environment.
+## Video Walkthrough
+
+For a detailed walkthrough of the application's functionality, you can watch the following Loom video:
+
+[**Watch the Video Walkthrough**](https://www.loom.com/share/d78a3dfd6a234c1a9e8169ec8f4cc566?sid=63beb664-72e2-4a1d-9b91-15dda1893172)
