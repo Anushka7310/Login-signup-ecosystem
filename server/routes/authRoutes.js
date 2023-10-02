@@ -11,7 +11,7 @@ const {
 } = require("../controllers/authControllers");
 const jwt = require("jsonwebtoken");
 
-const clientUrl = "http://localhost:5173";
+const clientUrl = "https://xerocodee-ef638.web.app";
 
 router.get(
   "/google",

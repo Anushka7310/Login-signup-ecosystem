@@ -36,11 +36,17 @@ export default function Register() {
     }
   };
   const googleLogin = () => {
-    window.open("http://localhost:8000/auth/google", "_self");
+    window.open(
+      "https://us-central1-xerocodee-ef638.cloudfunctions.net/xerocodee/auth/google",
+      "_self"
+    );
   };
 
   const githubLogin = () => {
-    window.open("http://localhost:8000/auth/github", "_self");
+    window.open(
+      "https://us-central1-xerocodee-ef638.cloudfunctions.net/xerocodee/auth/github",
+      "_self"
+    );
   };
   return (
     <div className="flex flex-row py-20 justify-between items-center  ">

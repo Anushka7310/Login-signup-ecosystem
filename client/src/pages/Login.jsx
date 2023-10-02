@@ -31,11 +31,17 @@ export default function Login() {
   };
 
   const googleLogin = () => {
-    window.open("http://localhost:8000/auth/google", "_self");
+    window.open(
+      "https://us-central1-xerocodee-ef638.cloudfunctions.net/xerocodee/auth/google",
+      "_self"
+    );
   };
 
   const githubLogin = () => {
-    window.open("http://localhost:8000/auth/github", "_self");
+    window.open(
+      "https://us-central1-xerocodee-ef638.cloudfunctions.net/xerocodee/auth/github",
+      "_self"
+    );
   };
 
   return (

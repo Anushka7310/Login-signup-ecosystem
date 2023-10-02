@@ -1,4 +1,3 @@
-const functions = require("firebase-functions");
 const express = require("express");
 const dotenv = require("dotenv").config();
 const cors = require("cors");
@@ -19,7 +18,6 @@ const allowedDomains = [
   "http://127.0.0.1:5173",
   "http://localhost:5173",
   "http://localhost:8000",
-  "https://xerocodee-ef638.web.app",
 ];
 app.use(
   cors({
@@ -53,4 +51,5 @@ app.use(passport.session());
 
 app.use("/auth", authRoute);
 
-exports.xerocodee = functions.https.onRequest(app);
+const port = 8000;
+app.listen(port, () => console.log(`Server is running on port ${port}`));
