@@ -1,4 +1,10 @@
 # xeroCodee-assignment
+
+## Video Walkthrough
+
+For a detailed walkthrough of the application's functionality, you can watch the following Loom video:
+
+[**Watch the Video Walkthrough**](https://www.loom.com/share/d78a3dfd6a234c1a9e8169ec8f4cc566?sid=63beb664-72e2-4a1d-9b91-15dda1893172)
 ## Project Overview
 
 The project consists of two main steps:
@@ -41,15 +47,11 @@ GOOGLE_CLIENT_SECRET=your-google-client-secret
 GITHUB_CLIENT_ID=your-github-client-id
 GITHUB_CLIENT_SECRET=your-github-client-secret
 ```
-
 ## Access the Deployed Application
 
 You can access the deployed version of this application by following the link below:
 
 [**Open the Application**](https://xerocodee-ef638.web.app)
 
-## Video Walkthrough
 
-For a detailed walkthrough of the application's functionality, you can watch the following Loom video:
 
-[**Watch the Video Walkthrough**](https://www.loom.com/share/d78a3dfd6a234c1a9e8169ec8f4cc566?sid=63beb664-72e2-4a1d-9b91-15dda1893172)
