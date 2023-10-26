@@ -31,25 +31,16 @@ export default function Login() {
   };
 
   const googleLogin = () => {
-    window.open(
-      "https://us-central1-xerocodee-ef638.cloudfunctions.net/xerocodee/auth/google",
-      "_self"
-    );
+    window.open("http://localhost:8000/auth/google", "_self");
   };
 
   const githubLogin = () => {
-    window.open(
-      "https://us-central1-xerocodee-ef638.cloudfunctions.net/xerocodee/auth/github",
-      "_self"
-    );
+    window.open("http://localhost:8000/auth/github", "_self");
   };
 
   return (
     <div className="flex flex-row pt-20 justify-between items-center  ">
       <div className="w-1/2 flex flex-col items-center pr-20 border-r-[#AAB2C873] border-r-2">
-        <div>
-          <img src="/images/xerocode.png" />
-        </div>
         <div className="font-[700] text-[32px] text-black mt-5">Welcome!</div>
 
         <div>Login To Your Account</div>

@@ -101,9 +101,6 @@ const Home = () => {
             (user.displayName || user.username || user.firstname).split(" ")[0]}
           !
         </h3>
-        <p className="text-[18px] font-[700] text-[#000]">
-          Welcome to XeroCodee Ecosystem
-        </p>
       </div>
       <div className=" flex flex-row justify-between">
         {/* Steps */}
@@ -138,9 +135,7 @@ const Home = () => {
           <h4 className="text-[22px] font-[700] text-[#000] letter-[5%] leading-[30.01px] mt-5">
             Your Progress
           </h4>
-          <p className="text-[14px] font-[700] text-[#818181] letter-[5%] leading-[19.1px]">
-            towards XeroCodee
-          </p>
+
           <div className="w-1/2 mt-10 ml-20">
             <CircularProgressbar
               value={progress}

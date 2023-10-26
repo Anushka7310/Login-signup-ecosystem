@@ -9,8 +9,7 @@ import { Toaster } from "react-hot-toast";
 import { UserContext } from "../context/userContext";
 import { useContext } from "react";
 
-axios.defaults.baseURL =
-  "https://us-central1-xerocodee-ef638.cloudfunctions.net/xerocodee";
+axios.defaults.baseURL = "http://localhost:8000";
 axios.defaults.withCredentials = true;
 
 function App() {
