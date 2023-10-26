@@ -54,4 +54,9 @@ You can access the deployed version of this application by following the link be
 [**Open the Application**](https://xerocodee-ef638.web.app)
 
 
+![signupp-login-ecosystem](https://github.com/Anushka7310/Login-signup-ecosystem/assets/61081130/65854ea2-2944-4746-8db6-e160cde9e5e7)
+
+![signup login ecosystem](https://github.com/Anushka7310/Login-signup-ecosystem/assets/61081130/cdb16d74-d929-4058-8a4b-a289909fe46e)
+
+![login-signup ecosystem](https://github.com/Anushka7310/Login-signup-ecosystem/assets/61081130/434e5c12-1d22-404d-97b1-f367b2cce2d8)
 
